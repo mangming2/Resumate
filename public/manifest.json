@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Resumate",
+    "version": "1.0.0",
+    "description": "Resumate is a tool that helps you create a resume.",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "permissions": [
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://*/*",
+        "http://*/*"
+    ]
+}

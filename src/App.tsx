@@ -130,7 +130,7 @@ const App = () => {
   return (
     <Wrapper>
       <Container>
-        <Header>Resumate</Header>
+        <Header>Resumate 🤝</Header>
         <GroupForm onSubmit={handleAddGroup} />
         <Content>
           {groups.map((group) => (

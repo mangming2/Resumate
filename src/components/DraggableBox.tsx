@@ -7,6 +7,7 @@ interface DraggableBoxProps {
   onUpdateTitle: (newTitle: string) => void
   onUpdateContent: (newContent: string) => void
   onDelete: () => void
+  onDragStart: (e: React.DragEvent) => void
 }
 
 export const DraggableBox = ({ 
@@ -14,7 +15,8 @@ export const DraggableBox = ({
   content, 
   onUpdateTitle, 
   onUpdateContent, 
-  onDelete 
+  onDelete,
+  onDragStart
 }: DraggableBoxProps) => {
   const [isEditingTitle, setIsEditingTitle] = useState(false)
   const [isEditingContent, setIsEditingContent] = useState(false)
@@ -60,7 +62,12 @@ export const DraggableBox = ({
             </EditForm>
           ) : (
             <>
-              <Content>{content}</Content>
+              <DragHandle
+                draggable
+                onDragStart={onDragStart}
+              >
+                <Content>{content}</Content>
+              </DragHandle>
               <EditButton onClick={() => setIsEditingContent(true)}>수정</EditButton>
             </>
           )}
@@ -119,4 +126,15 @@ const DeleteButton = tw.button`
 const SaveButton = tw.button`
   bg-green text-white px-2 py-1 rounded text-sm
   hover:bg-green
+`
+
+const DragHandle = tw.div`
+  flex-1
+  cursor-move
+  
+  [&:active]:opacity-70
+  [&:active]:scale-[0.98]
+  
+  transition-all
+  duration-200
 `

@@ -73,15 +73,12 @@ export const DraggableGroup = ({
       
       <ItemForm onSubmit={(title, content) => onAddItem(groupId, title, content)} />
       
-      <GroupContent>
+      <GroupContent
+        onDragOver={handleDragOver}
+      >
         {items.map((item, index) => (
-          <div
+          <ItemWrapper 
             key={item.id}
-            draggable
-            onDragStart={(e) => {
-              e.dataTransfer.setData('sourceIndex', index.toString())
-              onDragStart(e, item.content)
-            }}
             onDragOver={handleDragOver}
             onDrop={(e) => handleDrop(e, index)}
           >
@@ -91,8 +88,25 @@ export const DraggableGroup = ({
               onUpdateTitle={(newTitle) => onUpdateItemTitle(groupId, item.id, newTitle)}
               onUpdateContent={(newContent) => onUpdateItemContent(groupId, item.id, newContent)}
               onDelete={() => onDeleteItem(groupId, item.id)}
+              onDragStart={(e) => {
+                e.dataTransfer.setData('sourceIndex', index.toString())
+                onDragStart(e, item.content)
+                
+                // 드래그 고스트 이미지 커스터마이즈
+                const dragImage = e.currentTarget.cloneNode(true) as HTMLElement
+                dragImage.style.opacity = '0.5'
+                dragImage.style.position = 'absolute'
+                dragImage.style.top = '-1000px'
+                document.body.appendChild(dragImage)
+                e.dataTransfer.setDragImage(dragImage, 0, 0)
+                
+                // cleanup
+                setTimeout(() => {
+                  document.body.removeChild(dragImage)
+                }, 0)
+              }}
             />
-          </div>
+          </ItemWrapper>
         ))}
       </GroupContent>
     </GroupContainer>
@@ -145,3 +159,9 @@ const SaveButton = tw.button`
   bg-green text-white px-3 py-1 rounded text-sm
   hover:bg-green
 `
+
+const ItemWrapper = tw.div`
+  relative
+`
+
+

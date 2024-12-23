@@ -1,36 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import tw from 'twin.macro'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div className="bg-blue-500">
-        <div className="text-red-800">hi</div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Wrapper>
+      <Container>
+        <Header>Resumate</Header>
+        <Content>
+          <p>여기에 이력서 관련 컨텐츠가 들어갑니다.</p>
+        </Content>
+      </Container>
+    </Wrapper>
   )
 }
+
+const Wrapper = tw.div`
+  min-h-screen
+  bg-gray-100
+  p-4
+`
+
+const Container = tw.div`
+  bg-white
+  rounded-lg
+  shadow-lg
+  p-6
+`
+
+const Header = tw.h1`
+  text-2xl
+  font-bold
+  mb-4
+  text-gray-800
+`
+
+const Content = tw.div`
+  space-y-4
+`
 
 export default App

@@ -3,12 +3,16 @@
     "name": "Resumate",
     "version": "1.0.0",
     "description": "Resumate is a tool that helps you create a resume.",
-    "action": {
-        "default_popup": "index.html"
-    },
     "permissions": [
-        "scripting"
+        "sidePanel",
+        "tabs"
     ],
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "side_panel": {
+        "default_path": "index.html"
+    },
     "host_permissions": [
         "https://*/*",
         "http://*/*"

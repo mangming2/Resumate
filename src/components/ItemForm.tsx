@@ -2,35 +2,49 @@ import tw from 'twin.macro'
 import { useState } from 'react'
 
 interface ItemFormProps {
-  onSubmit: (content: string) => void
+  onSubmit: (title: string, content: string) => void
 }
 
 export const ItemForm = ({ onSubmit }: ItemFormProps) => {
+  const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (content.trim()) {
-      onSubmit(content.trim())
+    if (title.trim() && content.trim()) {
+      onSubmit(title.trim(), content.trim())
+      setTitle('')
       setContent('')
     }
   }
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Input
-        type="text"
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        placeholder="새 항목 내용 입력"
-      />
+      <InputGroup>
+        <Input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="제목 입력"
+        />
+        <Input
+          type="text"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          placeholder="내용 입력"
+        />
+      </InputGroup>
       <Button type="submit">항목 추가</Button>
     </Form>
   )
 }
 
 const Form = tw.form`
-  flex gap-2 mb-3
+  flex flex-col gap-2 mb-3
+`
+
+const InputGroup = tw.div`
+  flex gap-2
 `
 
 const Input = tw.input`

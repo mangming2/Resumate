@@ -2,12 +2,6 @@ import tw from 'twin.macro'
 import './App.css'
 import { useState } from 'react'
 
-declare global {
-  interface Window {
-    chrome: typeof chrome;
-  }
-}
-
 
 const App = () => {
   const [items] = useState([

@@ -1,13 +1,27 @@
 import tw from 'twin.macro'
 import './App.css'
 import { useState } from 'react'
-
+import { DraggableGroup } from './components/DraggableGroup'
+import { GroupForm } from './components/GroupForm'
 
 const App = () => {
-  const [items] = useState([
-    { id: '1', content: '이력서 내용 1' },
-    { id: '2', content: '이력서 내용 2' },
-    { id: '3', content: '이력서 내용 3' },
+  const [groups, setGroups] = useState([
+    {
+      id: '1',
+      title: '자기소개',
+      items: [
+        { id: '1-1', content: '이력서 내용 1' },
+        { id: '1-2', content: '이력서 내용 2' },
+      ]
+    },
+    {
+      id: '2',
+      title: '경력사항',
+      items: [
+        { id: '2-1', content: '이력서 내용 3' },
+        { id: '2-2', content: '이력서 내용 4' },
+      ]
+    }
   ])
 
   const handleDragStart = (e: React.DragEvent, content: string) => {
@@ -26,19 +40,45 @@ const App = () => {
     })
   }
 
+  const handleAddGroup = (title: string) => {
+    const newGroup = {
+      id: Date.now().toString(),
+      title,
+      items: []
+    }
+    setGroups([...groups, newGroup])
+  }
+
+  const handleAddItem = (groupId: string, content: string) => {
+    setGroups(groups.map(group => {
+      if (group.id === groupId) {
+        return {
+          ...group,
+          items: [...group.items, {
+            id: `${groupId}-${Date.now()}`,
+            content
+          }]
+        }
+      }
+      return group
+    }))
+  }
+
   return (
     <Wrapper>
       <Container>
         <Header>Resumate</Header>
+        <GroupForm onSubmit={handleAddGroup} />
         <Content>
-          {items.map((item) => (
-            <DraggableBox
-              key={item.id}
-              draggable
-              onDragStart={(e) => handleDragStart(e, item.content)}
-            >
-              {item.content}
-            </DraggableBox>
+          {groups.map((group) => (
+            <DraggableGroup
+              key={group.id}
+              groupId={group.id}
+              title={group.title}
+              items={group.items}
+              onDragStart={handleDragStart}
+              onAddItem={handleAddItem}
+            />
           ))}
         </Content>
       </Container>
@@ -71,15 +111,5 @@ const Content = tw.div`
   space-y-4
 `
 
-const DraggableBox = tw.div`
-  p-4
-  bg-blue-50
-  border
-  border-blue-200
-  rounded-md
-  cursor-move
-  hover:bg-blue-100
-  transition-colors
-`
 
 export default App

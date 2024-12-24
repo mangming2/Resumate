@@ -2,6 +2,7 @@ import { useState } from 'react'
 import tw from 'twin.macro'
 import { DraggableBox } from './DraggableBox'
 import { ItemForm } from './ItemForm'
+import { IconDelete, IconEdit, IconSave } from './icon'
 
 interface DraggableGroupProps {
   groupId: string
@@ -58,14 +59,14 @@ export const DraggableGroup = ({
               value={editTitle}
               onChange={(e) => setEditTitle(e.target.value)}
             />
-            <SaveButton type="submit">저장</SaveButton>
+            <SaveButton type="submit"><IconSave width={16} height={16} color='white' /></SaveButton>
           </EditTitleForm>
         ) : (
           <>
             <GroupTitle>{title}</GroupTitle>
             <ButtonGroup>
-              <EditButton onClick={() => setIsEditing(true)}>수정</EditButton>
-              <DeleteButton onClick={() => onDeleteGroup(groupId)}>삭제</DeleteButton>
+              <EditButton onClick={() => setIsEditing(true)}><IconEdit width={16} height={16} color='white' /></EditButton>
+              <DeleteButton onClick={() => onDeleteGroup(groupId)}><IconDelete width={16} height={16} color='white' /></DeleteButton>
             </ButtonGroup>
           </>
         )}
@@ -127,20 +128,22 @@ const GroupContent = tw.div`
 `
 
 const GroupHeader = tw.div`
-  flex items-center mb-3
+  flex items-center mb-3 gap-4
 `
 
 const ButtonGroup = tw.div`
-  flex gap-2
+  flex gap-4
 `
 
 const EditButton = tw.button`
-  text-blue text-sm 
+  flex items-center gap-1 text-blue text-sm cursor-pointer
+  bg-blue text-white px-3 py-1 rounded-4
 `
 
 const DeleteButton = tw.button`
+  flex items-center gap-1 text-red text-sm cursor-pointer
   bg-red text-white px-3 py-1 rounded-4
-  hover:bg-red 
+
 `
 
 const EditTitleForm = tw.form`
@@ -148,12 +151,12 @@ const EditTitleForm = tw.form`
 `
 
 const Input = tw.input`
-  flex-1 p-2 border rounded
+  p-1 border rounded-2 max-w-100
 `
 
 const SaveButton = tw.button`
-  bg-green text-white px-3 py-1 rounded text-sm
-  hover:bg-green
+  flex items-center gap-1 text-sm cursor-pointer
+  bg-green text-white px-3 py-1 rounded-4
 `
 
 const ItemWrapper = tw.div`

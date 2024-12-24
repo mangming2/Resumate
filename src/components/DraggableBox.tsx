@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import tw from 'twin.macro'
+import { IconDelete, IconSave } from './icon'
+import { IconEdit } from './icon'
 
 interface DraggableBoxProps {
   title: string
@@ -37,12 +39,12 @@ export const DraggableBox = ({
                 value={editTitle}
                 onChange={(e) => setEditTitle(e.target.value)}
               />
-              <SaveButton type="submit">저장</SaveButton>
+              <SaveButton type="submit"><IconSave width={16} height={16} color='white' /></SaveButton>
             </EditForm>
           ) : (
             <>
               <Title>{title}</Title>
-              <EditButton onClick={() => setIsEditingTitle(true)}>수정</EditButton>
+              <EditButton onClick={() => setIsEditingTitle(true)}><IconEdit width={16} height={16} color='white' /></EditButton>
             </>
           )}
         </TitleSection>
@@ -58,7 +60,7 @@ export const DraggableBox = ({
                 value={editContent}
                 onChange={(e) => setEditContent(e.target.value)}
               />
-              <SaveButton type="submit">저장</SaveButton>
+              <SaveButton type="submit"><IconSave width={16} height={16} color='white' /></SaveButton>
             </EditForm>
           ) : (
             <>
@@ -68,13 +70,13 @@ export const DraggableBox = ({
               >
                 <Content>{content}</Content>
               </DragHandle>
-              <EditButton onClick={() => setIsEditingContent(true)}>수정</EditButton>
+              <EditButton onClick={() => setIsEditingContent(true)}><IconEdit width={16} height={16} color='white' /></EditButton>
             </>
           )}
         </ContentArea>
       </ContentSection>
       
-      <DeleteButton onClick={onDelete}>삭제</DeleteButton>
+      <DeleteButton onClick={onDelete}><IconDelete width={16} height={16} color='white' /></DeleteButton>
     </BoxContainer>
   )
 }
@@ -115,26 +117,22 @@ const EditForm = tw.form`
 `
 
 const Input = tw.input`
-  p-1 border rounded-4 max-w-100
+  p-1 border rounded-2 max-w-100
 `
 
 const EditButton = tw.button`
-  bg-blue text-white px-2 py-1 rounded-4
-  whitespace-nowrap
-  
+  flex items-center gap-1 text-sm cursor-pointer
+  bg-blue text-white px-3 py-1 rounded-4
 `
 
 const DeleteButton = tw.button`
-  bg-red text-white px-2 py-1 rounded-4
-  font-14-sb cursor-pointer
-  whitespace-nowrap
+  flex items-center gap-1 text-sm cursor-pointer
+  bg-red text-white px-3 py-1 rounded-4
 `
 
 const SaveButton = tw.button`
-  bg-green text-white px-2 py-1 rounded-4
-  font-14-sb cursor-pointer
-  whitespace-nowrap 
-  
+  flex items-center gap-1 text-sm cursor-pointer
+  bg-green text-white px-3 py-1 rounded-4
 `
 
 const DragHandle = tw.div`

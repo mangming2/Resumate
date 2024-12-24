@@ -20,14 +20,15 @@ export const ItemForm = ({ onSubmit }: ItemFormProps) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <InputGroup>
-        <Input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="제목 입력"
+      <InputWrapper>
+        <InputGroup>
+          <StyledInput
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="제목 입력"
         />
-        <Input
+        <StyledInput
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}
@@ -35,23 +36,33 @@ export const ItemForm = ({ onSubmit }: ItemFormProps) => {
         />
       </InputGroup>
       <Button type="submit">항목 추가</Button>
+      </InputWrapper>
     </Form>
   )
 }
 
 const Form = tw.form`
-  flex flex-col gap-2 mb-3
+  w-full
+`
+
+const InputWrapper = tw.div`
+  flex w-full gap-2
 `
 
 const InputGroup = tw.div`
-  flex gap-2
+  flex flex-1 gap-2
 `
 
-const Input = tw.input`
-  flex-1 p-2 border rounded text-sm
+const StyledInput = tw.input`
+  flex
+  border rounded-2
+  p-2
 `
 
 const Button = tw.button`
-  bg-gray-500 text-white px-3 py-1 rounded text-sm
+  shrink-0
+  bg-gray-500 text-white px-3 py-1 rounded-4
   hover:bg-gray-600
+  cursor-pointer
+  font-14-r
 ` 

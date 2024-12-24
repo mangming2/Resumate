@@ -1,5 +1,4 @@
 import tw from 'twin.macro'
-import './App.css'
 import { useState } from 'react'
 import { DraggableGroup } from './components/DraggableGroup'
 import { GroupForm } from './components/GroupForm'
@@ -157,27 +156,21 @@ const App = () => {
 
 // 스타일링
 const Wrapper = tw.div`
-  min-h-screen
-  bg-gray-100
-  p-4
+  flex flex-col items-center 
+  bg-gray-100 p-4 max-w-337
 `
 
 const Container = tw.div`
-  bg-white
-  rounded-lg
-  shadow-lg
-  p-6
+  bg-white rounded-8 p-4 gap-4
 `
 
-const Header = tw.h1`
-  text-2xl
-  font-bold
-  mb-4
-  text-gray-800
+const Header = tw.div`
+  flex items-center justify-center
+  font-26-sb leading-none p-6
 `
 
 const Content = tw.div`
-  space-y-4
+  flex flex-col gap-4
 `
 
 

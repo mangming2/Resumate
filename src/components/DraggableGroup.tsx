@@ -114,25 +114,20 @@ export const DraggableGroup = ({
 }
 
 const GroupContainer = tw.div`
-  bg-gray-50
-  rounded-lg
-  p-4
-  mb-4
+  flex flex-col bg-border rounded-8 p-4 gap-4
 `
 
 const GroupTitle = tw.h2`
-  text-xl
-  font-semibold
-  mb-3
+  font-22-sb
   text-gray-700
 `
 
 const GroupContent = tw.div`
-  space-y-2
+  flex flex-col gap-4
 `
 
 const GroupHeader = tw.div`
-  flex justify-between items-center mb-3
+  flex items-center mb-3
 `
 
 const ButtonGroup = tw.div`
@@ -140,11 +135,12 @@ const ButtonGroup = tw.div`
 `
 
 const EditButton = tw.button`
-  text-blue-500 text-sm hover:text-blue-600
+  text-blue text-sm 
 `
 
 const DeleteButton = tw.button`
-  text-red text-sm hover:text-red
+  bg-red text-white px-3 py-1 rounded-4
+  hover:bg-red 
 `
 
 const EditTitleForm = tw.form`

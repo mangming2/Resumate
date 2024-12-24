@@ -50,8 +50,7 @@ module.exports = {
         green: "#59BC12",
         yellow: "#F3A216",
         red: "#FF5454",
-        //closed: "#FF5454",
-        // blue: "#FF5454",
+        blue: "#3476E6",
         divider: "#EBEBED",
         border: "#F4F4F5",
       },
@@ -279,6 +278,11 @@ module.exports = {
         ".font-22-sb": {
           fontSize: "22px",
           lineHeight: "33px",
+          fontWeight: 600,
+        },
+        ".font-26-sb": {
+          fontSize: "26px",
+          lineHeight: "39px",
           fontWeight: 600,
         },
       });

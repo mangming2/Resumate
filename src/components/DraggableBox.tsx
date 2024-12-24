@@ -80,51 +80,54 @@ export const DraggableBox = ({
 }
 
 const BoxContainer = tw.div`
-  bg-white p-3 rounded shadow-sm
-  flex flex-col gap-2
+  flex items-center gap-4 bg-white p-3 rounded-4
+  border-solid border-2 border-blue
   hover:shadow-md transition-shadow
 `
 
 const ContentSection = tw.div`
-  flex-1
+  flex items-center gap-4
 `
 
 const TitleSection = tw.div`
-  flex items-center justify-between mb-2
-  border-b pb-2
+  flex items-center gap-4 p-4
 `
 
 const Title = tw.h3`
-  font-semibold text-gray-800
+  font-16-sb leading-none m-0
 `
 
 const ContentArea = tw.div`
-  flex items-center justify-between
+  flex gap-4
 `
 
 const Content = tw.div`
-  text-gray-600 flex-1
+  bg-white text-gray-700 p-4 rounded-4
+  border-solid border-2 border-blue
+  font-14-r m-0 leading-none  
 `
 
 const EditForm = tw.form`
-  flex gap-2 items-center flex-1
+  flex gap-2 items-center
 `
 
 const Input = tw.input`
-  flex-1 p-1 border rounded text-sm
+  p-1 border rounded-4 max-w-100
 `
 
 const EditButton = tw.button`
-  text-blue-500 text-sm hover:text-blue-600
+  bg-blue text-white px-2 py-1 rounded-4
 `
 
 const DeleteButton = tw.button`
-  text-red text-sm hover:text-red
-  self-end
+  bg-red text-white px-2 py-1 rounded-4
+  font-14-sb
+  hover:bg-red
 `
 
 const SaveButton = tw.button`
-  bg-green text-white px-2 py-1 rounded text-sm
+  bg-green text-white px-2 py-1 rounded-4
+  font-14-sb
   hover:bg-green
 `
 

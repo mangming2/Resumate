@@ -1,7 +1,8 @@
 import tw from 'twin.macro'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { DraggableGroup } from './components/DraggableGroup'
 import { GroupForm } from './components/GroupForm'
+import { loadGroups, saveGroups } from './db/db'
 
 const App = () => {
   const [groups, setGroups] = useState([
@@ -22,6 +23,22 @@ const App = () => {
       ]
     }
   ])
+
+  // 초기 데이터 로드
+  useEffect(() => {
+    loadGroups().then(savedGroups => {
+      if (savedGroups.length > 0) {
+        setGroups(savedGroups)
+      }
+    }).catch(error => console.error('Failed to load groups:', error))
+  }, [])
+
+  // groups가 변경될 때마다 저장
+  useEffect(() => {
+    saveGroups(groups).catch(error => 
+      console.error('Failed to save groups:', error)
+    )
+  }, [groups])
 
   const handleDragStart = (e: React.DragEvent, content: string) => {
     // 드래그 시작할 때 데이터 설정
@@ -157,16 +174,18 @@ const App = () => {
 // 스타일링
 const Wrapper = tw.div`
   flex flex-col items-center 
-  bg-gray-100 p-4 max-w-337
+  bg-gray-100 px-4
+  min-h-screen
 `
 
 const Container = tw.div`
-  bg-white rounded-8 p-4 gap-4
+  bg-white rounded-8 p-3 gap-4
+  w-[337px]
 `
 
 const Header = tw.div`
   flex items-center justify-center
-  font-26-sb leading-none p-6
+  font-26-sb leading-none py-4
 `
 
 const Content = tw.div`

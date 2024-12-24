@@ -83,6 +83,7 @@ const BoxContainer = tw.div`
   flex items-center gap-4 bg-white p-3 rounded-4
   border-solid border-2 border-blue
   hover:shadow-md transition-shadow
+  justify-between
 `
 
 const ContentSection = tw.div`
@@ -90,11 +91,12 @@ const ContentSection = tw.div`
 `
 
 const TitleSection = tw.div`
-  flex items-center gap-4 p-4
+  flex items-center flex-1 gap-4 p-4
 `
 
-const Title = tw.h3`
+const Title = tw.div`
   font-16-sb leading-none m-0
+  max-w-100 truncate
 `
 
 const ContentArea = tw.div`
@@ -105,6 +107,7 @@ const Content = tw.div`
   bg-white text-gray-700 p-4 rounded-4
   border-solid border-2 border-blue
   font-14-r m-0 leading-none  
+  w-100 truncate
 `
 
 const EditForm = tw.form`
@@ -117,18 +120,21 @@ const Input = tw.input`
 
 const EditButton = tw.button`
   bg-blue text-white px-2 py-1 rounded-4
+  whitespace-nowrap
+  
 `
 
 const DeleteButton = tw.button`
   bg-red text-white px-2 py-1 rounded-4
-  font-14-sb
-  hover:bg-red
+  font-14-sb cursor-pointer
+  whitespace-nowrap
 `
 
 const SaveButton = tw.button`
   bg-green text-white px-2 py-1 rounded-4
-  font-14-sb
-  hover:bg-green
+  font-14-sb cursor-pointer
+  whitespace-nowrap 
+  
 `
 
 const DragHandle = tw.div`

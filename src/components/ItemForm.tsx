@@ -54,7 +54,7 @@ const InputGroup = tw.div`
 `
 
 const StyledInput = tw.input`
-  flex
+  flex w-100
   border rounded-2
   p-2
 `

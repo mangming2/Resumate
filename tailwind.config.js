@@ -30,9 +30,9 @@ module.exports = {
       colors: {
         ...defaultTheme.colors,
 
-        white: "#ffffff",
+        white: "#F2F2F2",
 
-        black: "#111111",
+        black: "#0D0D0D",
 
         gray: {
           100: "#E7E7E7",
@@ -46,9 +46,16 @@ module.exports = {
           900: "#292929",
         },
 
+        yellow:{
+          100: "#F2E641",
+          200: "#A69129",
+          300: "#F2D541",
+          400: "#F3A216",
+       
+        },
+
         orange: "#FF5E00",
         green: "#59BC12",
-        yellow: "#F3A216",
         red: "#FF5454",
         blue: "#3476E6",
         divider: "#EBEBED",

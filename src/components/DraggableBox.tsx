@@ -83,7 +83,7 @@ export const DraggableBox = ({
 
 const BoxContainer = tw.div`
   flex items-center gap-4 bg-white p-3 rounded-4
-  border-solid border-2 border-blue
+  border-solid border-2 border-navy
   hover:shadow-md transition-shadow
   justify-between
 `
@@ -102,7 +102,7 @@ const Title = tw.div`
 `
 
 const ContentArea = tw.div`
-  flex gap-4
+  flex gap-4 items-center
 `
 
 const Content = tw.div`
@@ -121,18 +121,21 @@ const Input = tw.input`
 `
 
 const EditButton = tw.button`
-  flex items-center gap-1 text-sm cursor-pointer
+  flex items-center gap-1 cursor-pointer
   bg-blue text-white px-3 py-1 rounded-4
+  border-solid border-1 border-navy
 `
 
 const DeleteButton = tw.button`
-  flex items-center gap-1 text-sm cursor-pointer
+  flex items-center gap-1 cursor-pointer
   bg-red text-white px-3 py-1 rounded-4
+  border-solid border-1 border-navy
 `
 
 const SaveButton = tw.button`
-  flex items-center gap-1 text-sm cursor-pointer
+  flex items-center gap-1 cursor-pointer
   bg-green text-white px-3 py-1 rounded-4
+  border-solid border-1 border-navy
 `
 
 const DragHandle = tw.div`

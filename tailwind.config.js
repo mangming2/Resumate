@@ -60,6 +60,11 @@ module.exports = {
         blue: "#3476E6",
         divider: "#EBEBED",
         border: "#F4F4F5",
+
+        navy: "#213555",
+        deepBlue: "#3E5879",
+        brown: "#D8C4B6",
+        lightBrown: "#F5EFE7",
       },
 
       fontFamily: {

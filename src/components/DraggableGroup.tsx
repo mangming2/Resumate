@@ -115,12 +115,12 @@ export const DraggableGroup = ({
 }
 
 const GroupContainer = tw.div`
-  flex flex-col bg-border rounded-8 p-4 gap-4
+  flex flex-col bg-lightBrown rounded-8 p-4 gap-4
 `
 
-const GroupTitle = tw.h2`
+const GroupTitle = tw.div`
   font-22-sb
-  text-gray-700
+  text-navy
 `
 
 const GroupContent = tw.div`
@@ -138,12 +138,13 @@ const ButtonGroup = tw.div`
 const EditButton = tw.button`
   flex items-center gap-1 text-blue text-sm cursor-pointer
   bg-blue text-white px-3 py-1 rounded-4
+  border-solid border-1 border-navy
 `
 
 const DeleteButton = tw.button`
   flex items-center gap-1 text-red text-sm cursor-pointer
   bg-red text-white px-3 py-1 rounded-4
-
+  border-solid border-1 border-navy
 `
 
 const EditTitleForm = tw.form`
@@ -157,6 +158,7 @@ const Input = tw.input`
 const SaveButton = tw.button`
   flex items-center gap-1 text-sm cursor-pointer
   bg-green text-white px-3 py-1 rounded-4
+  border-solid border-1 border-navy
 `
 
 const ItemWrapper = tw.div`

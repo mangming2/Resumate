@@ -61,8 +61,8 @@ const StyledInput = tw.input`
 
 const Button = tw.button`
   shrink-0
-  bg-gray-500 text-white px-3 py-1 rounded-4
-  hover:bg-gray-600
+  bg-navy text-white px-3 py-1 rounded-4
+  hover:bg-deepBlue
   cursor-pointer
   font-14-r
 ` 

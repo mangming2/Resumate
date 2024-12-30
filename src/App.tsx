@@ -179,17 +179,19 @@ const Wrapper = tw.div`
 `
 
 const Container = tw.div`
-  bg-white rounded-8 p-3 gap-4
+  bg-lightBrown rounded-8 p-3 gap-4
   w-[337px]
 `
 
 const Header = tw.div`
   flex items-center justify-center
   font-26-sb leading-none py-4
+  text-navy
 `
 
 const Content = tw.div`
   flex flex-col gap-4
+  
 `
 
 

@@ -38,6 +38,9 @@ const Input = tw.input`
 `
 
 const Button = tw.button`
-  bg-blue text-white px-4 py-2 rounded
+  shrink-0
+  bg-navy text-white px-3 py-1 rounded-4
+  hover:bg-deepBlue
   cursor-pointer
+  font-14-r
 ` 

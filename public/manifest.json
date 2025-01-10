@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Resumate",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Resumate is a tool that helps you create a resume.",
     "icons": {
         "16": "icons/icon16.png",
@@ -17,8 +17,7 @@
         }
     },
     "permissions": [
-        "sidePanel",
-        "tabs"
+        "sidePanel"
     ],
     "background": {
         "service_worker": "service-worker.js"
